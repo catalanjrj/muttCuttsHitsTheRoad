@@ -25,7 +25,6 @@
 @property(strong,nonatomic)UIPopoverPresentationController *popoverController;
 
 -(IBAction)showPopover:(id)sender;
--(IBAction)getLocation:(id)sender;
 -(void)stringToLocation:(NSString *)addressString;
 -(IBAction)dismiss:(id)sender;
 -(IBAction)cancel:(id)sender;
@@ -50,8 +49,7 @@
     //add bar button for navigation controller
     UIBarButtonItem *popoverButton =[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showPopover:)];
     self.navigationController.navigationBar.topItem.rightBarButtonItem = popoverButton;
-    UIBarButtonItem *currentLocationButton =[[UIBarButtonItem alloc]initWithTitle:@"Current" style:UIBarButtonItemStylePlain target:self action:@selector(getLocation:)];
-    self.navigationController.navigationBar.topItem.leftBarButtonItem = currentLocationButton;
+    
     
     
     CGRect theFrame = self.view.frame;
@@ -157,14 +155,7 @@
     [self presentViewController:self.controller animated:YES completion:nil];
 
 }
--(IBAction)getLocation:(id)sender{
-    [self.manager startUpdatingLocation];
-    CLLocation *currentLocation = self.mapView.userLocation.location;
-    Location *current = [[Location alloc]initWithCoord:CLLocationCoordinate2DMake(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude) title:@"current location" subtitle:@""];
-    [self.mapView addAnnotation:current];
-    [self.manager stopUpdatingLocation];
 
-}
 
 #pragma mark -UIPopoverControllerDelegate
 -(BOOL)popoverPresentationControllerShouldDismissPopover:(UIPopoverPresentationController *)popoverPresentationController{
