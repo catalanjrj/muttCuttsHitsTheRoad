@@ -14,6 +14,11 @@
 
 @property (strong,nonatomic) MKMapView *mapView;
 @property (strong,nonatomic)CLLocationManager *manager;
+@property(strong,nonatomic)NSMutableArray<Location *> *selectedLocations;
+
+
+@property(strong,nonatomic)UIView *distanceView;
+@property(strong,nonatomic)UILabel *distanceLabel;
 
 @end
 
