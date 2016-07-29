@@ -28,18 +28,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Enter two cities";
+ 
     self.formValidation = [[FormValidation alloc]init];
     self.locations = [[NSMutableArray alloc]init];
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
-    view.backgroundColor = [UIColor darkGrayColor];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
+    view.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     
-    CGRect textFieldFrameOne = CGRectMake(view.bounds.origin.x + 20, view.bounds.origin.y + 20, view.bounds.size.width * 0.9,40);
-    CGRect textFieldFrameTwo = CGRectMake(view.bounds.origin.x + 20, view.bounds.origin.y + 20, view.bounds.size.width * 0.9,40);
+    CGRect textFieldFrameOne = CGRectMake(view.bounds.origin.x + 20, view.bounds.origin.y + 20, view.bounds.size.width * 0.9, 40);
+    CGRect textFieldFrameTwo = CGRectMake(view.bounds.origin.x + 20, textFieldFrameOne.origin.y * 4, view.bounds.size.width * 0.9, 40);
     
-    self.firstAddress = [[[UITextField alloc]init] initWithFrame:textFieldFrameOne];
+    self.firstAddress = [[UITextField alloc] initWithFrame:textFieldFrameOne];
     self.firstAddress.backgroundColor = [UIColor whiteColor];
-    self.firstAddress.borderStyle = UITextBorderStyleBezel;
+    self.firstAddress.borderStyle = UITextBorderStyleRoundedRect;
     self.firstAddress.placeholder =@"City, State";
     self.firstAddress.returnKeyType = UIReturnKeyNext;
     self.firstAddress.enablesReturnKeyAutomatically = YES;
@@ -47,9 +49,9 @@
     self.firstAddress.delegate = self;
     
     
-    self.secondAddress = [[[UITextField alloc]init] initWithFrame:textFieldFrameOne];
+    self.secondAddress = [[UITextField alloc] initWithFrame:textFieldFrameTwo];
     self.secondAddress.backgroundColor = [UIColor whiteColor];
-    self.secondAddress.borderStyle = UITextBorderStyleBezel;
+    self.secondAddress.borderStyle = UITextBorderStyleRoundedRect;
     self.secondAddress.placeholder =@"City, State";
     self.secondAddress.returnKeyType = UIReturnKeyNext;
     self.secondAddress.enablesReturnKeyAutomatically = YES;
@@ -58,6 +60,8 @@
     
     [view addSubview:self.firstAddress];
     [view addSubview:self.secondAddress];
+    [self.view addSubview:view];
+    
     [self.firstAddress becomeFirstResponder];
     
     

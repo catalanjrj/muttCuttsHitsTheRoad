@@ -11,6 +11,7 @@
 @implementation FormValidation
 -(BOOL)isAddressValid:(NSString *)address{
     if([address isEqualToString:@""]){
+        return NO;
     }
     if([address componentsSeparatedByString:@","].count < 2){
         return NO;

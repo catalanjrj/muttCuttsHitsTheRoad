@@ -96,14 +96,14 @@
 			children = (
 				122F2F141D04F60F00195C7C /* ViewController.h */,
 				122F2F151D04F60F00195C7C /* ViewController.m */,
-				C5C627301D4BA63B0056E8C0 /* objects */,
 				C5C627371D4BB1A70056E8C0 /* popOverControllerViewController.h */,
 				C5C627381D4BB1A70056E8C0 /* popOverControllerViewController.m */,
+				C5C627301D4BA63B0056E8C0 /* models */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
 		};
-		C5C627301D4BA63B0056E8C0 /* objects */ = {
+		C5C627301D4BA63B0056E8C0 /* models */ = {
 			isa = PBXGroup;
 			children = (
 				C5C627311D4BA6800056E8C0 /* Location.h */,
@@ -111,7 +111,7 @@
 				C5C627341D4BAEDF0056E8C0 /* FormValidation.h */,
 				C5C627351D4BAEDF0056E8C0 /* FormValidation.m */,
 			);
-			name = objects;
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
