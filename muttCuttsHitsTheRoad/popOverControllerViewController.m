@@ -63,16 +63,45 @@
     
 }
 
+#pragma mark - TextField Delegate
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if([textField isEqual:self.firstAddress]){
+        if([self.formValidation isAddressValid:textField.text]){
+            [self.locations addObject:textField.text];
+            [self.firstAddress resignFirstResponder];
+            [self.secondAddress becomeFirstResponder];
+            return YES;
+        }else{
+            [self presentError:@"Error" message:@"invalid city and state entered"];
+        
+        }
+    
+    }else if([textField isEqual:self.secondAddress]){
+        if([self.formValidation isAddressValid:textField.text]){
+            [self.locations addObject:textField.text];
+            [self.secondAddress resignFirstResponder];
+            return YES;
+        }else{
+            [self presentError:@"Error" message:@"invalid city and state entered"];
+        
+        }
+    }
+    return NO;
 }
-*/
+
+#pragma mark - Error Handling
+
+-(void)presentError:(NSString *)title message:(NSString *)message{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okButton];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+
+
+
 
 @end
