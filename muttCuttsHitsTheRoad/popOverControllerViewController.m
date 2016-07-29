@@ -37,6 +37,30 @@
     CGRect textFieldFrameOne = CGRectMake(view.bounds.origin.x + 20, view.bounds.origin.y + 20, view.bounds.size.width * 0.9,40);
     CGRect textFieldFrameTwo = CGRectMake(view.bounds.origin.x + 20, view.bounds.origin.y + 20, view.bounds.size.width * 0.9,40);
     
+    self.firstAddress = [[[UITextField alloc]init] initWithFrame:textFieldFrameOne];
+    self.firstAddress.backgroundColor = [UIColor whiteColor];
+    self.firstAddress.borderStyle = UITextBorderStyleBezel;
+    self.firstAddress.placeholder =@"City, State";
+    self.firstAddress.returnKeyType = UIReturnKeyNext;
+    self.firstAddress.enablesReturnKeyAutomatically = YES;
+    self.firstAddress.tag = 1;
+    self.firstAddress.delegate = self;
+    
+    
+    self.secondAddress = [[[UITextField alloc]init] initWithFrame:textFieldFrameOne];
+    self.secondAddress.backgroundColor = [UIColor whiteColor];
+    self.secondAddress.borderStyle = UITextBorderStyleBezel;
+    self.secondAddress.placeholder =@"City, State";
+    self.secondAddress.returnKeyType = UIReturnKeyNext;
+    self.secondAddress.enablesReturnKeyAutomatically = YES;
+    self.secondAddress.tag = 2;
+    self.secondAddress.delegate = self;
+    
+    [view addSubview:self.firstAddress];
+    [view addSubview:self.secondAddress];
+    [self.firstAddress becomeFirstResponder];
+    
+    
 }
 
 
