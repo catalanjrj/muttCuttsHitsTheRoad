@@ -86,6 +86,7 @@
             [self.locations addObject:textField.text];
             [self.secondAddress resignFirstResponder];
             return YES;
+            
         }else{
             [self presentError:@"Error" message:@"invalid city and state entered"];
         
